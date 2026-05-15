@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>DESTERRO — por Catarina Desterro</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css"/>
+
+  <style>
+    html, body { margin: 0; padding: 0; background: #1a1815; }
+    body { font-family: var(--sans); }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="design-canvas.jsx"></script>
+  <script type="text/babel" src="desktop-home.jsx"></script>
+  <script type="text/babel" src="article.jsx"></script>
+  <script type="text/babel" src="mobile-home.jsx"></script>
+  <script type="text/babel" src="sobre.jsx"></script>
+  <script type="text/babel" src="sobre-jornal.jsx"></script>
+  <script type="text/babel" src="artigo-marketing.jsx"></script>
+  <script type="text/babel" src="categoria.jsx"></script>
+  <script type="text/babel" src="fale-comigo.jsx"></script>
+  <script type="text/babel" src="not-found.jsx"></script>
+
+  <script type="text/babel">
+    const App = () => (
+      <DesignCanvas
+        title="DESTERRO"
+        subtitle="jornal digital pessoal · por Catarina Desterro"
+      >
+        <DCSection id="brand" title="01 · Identidade & sistema">
+          <DCArtboard id="masthead" label="Masthead — wordmark + linha editorial" width={1280} height={260}>
+            <div style={{ background: "var(--paper-warm)", width: 1280, height: 260, padding: "32px 40px", boxSizing: "border-box", fontFamily: "var(--sans)" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "end", gap: 24, paddingBottom: 14, borderBottom: "1px solid var(--ink)" }}>
+                <div className="mono" style={{ fontSize: 10, letterSpacing: ".22em", textTransform: "uppercase", color: "var(--gray-2)" }}>
+                  <span style={{ color: "var(--ink)" }}>Um jornal de voz própria</span>
+                </div>
+                <div style={{ textAlign: "center" }}>
+                  <div style={{ fontFamily: "var(--serif)", fontWeight: 800, fontSize: 110, lineHeight: .9, letterSpacing: "-.02em" }}>DESTERRO</div>
+                  <div style={{ marginTop: 6, fontFamily: "var(--sans)", fontWeight: 300, fontSize: 13, letterSpacing: ".32em", textTransform: "uppercase", color: "var(--gray-2)" }}>
+                    por <span style={{ fontFamily: "var(--serif)", fontStyle: "italic", textTransform: "none", letterSpacing: 0, color: "var(--ink)", fontSize: 16 }}>Catarina Desterro</span>
+                  </div>
+                </div>
+                <div className="mono" style={{ textAlign: "right", fontSize: 10, letterSpacing: ".22em", textTransform: "uppercase", color: "var(--gray-2)" }}>
+                  <span style={{ color: "var(--ink)" }}>Sobre a Desterro →</span>
+                </div>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", paddingTop: 14, fontFamily: "var(--sans)", fontSize: 13, fontWeight: 500 }}>
+                <div style={{ display: "flex", gap: 32 }}>
+                  <span style={{ borderBottom: "2px solid var(--ink)", paddingBottom: 2 }}>Marketing</span>
+                  <span>Mercado</span><span>Carreira</span><span>Empreendedorismo</span>
+                  <span style={{ fontFamily: "var(--serif)", fontStyle: "italic" }}>Opinião</span>
+                </div>
+                <span style={{ fontFamily: "var(--mono)", fontSize: 10, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--gray-2)" }}>Fale comigo →</span>
+              </div>
+            </div>
+          </DCArtboard>
+
+          <DCArtboard id="system" label="Sistema visual — paleta, tipografia, componentes" width={1280} height={680}>
+            <div style={{ width: 1280, height: 680, background: "var(--paper-warm)", padding: 40, boxSizing: "border-box", fontFamily: "var(--sans)" }}>
+              {/* paleta */}
+              <div className="kicker" style={{ marginBottom: 12 }}>01 · Paleta</div>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 10, marginBottom: 26 }}>
+                {[
+                  ["Tinta","#0E0E0C","--ink","texto, regras"],
+                  ["Papel","#F5F0E3","--paper-warm","fundo principal"],
+                  ["Bege","#EDE6D6","--paper","blocos / cards"],
+                  ["Azul","#C7D6E0","--blue","destaques editoriais"],
+                  ["Cinza","#8a8479","--gray-3","metadados"],
+                  ["Cinza claro","#d8d2c4","--gray-5","linhas finas"],
+                ].map((s,i)=>(
+                  <div key={i}>
+                    <div style={{ height: 80, background: s[1], border: "1px solid var(--ink)" }}></div>
+                    <div className="mono" style={{ fontSize: 10, letterSpacing: ".15em", textTransform: "uppercase", color: "var(--gray-2)", marginTop: 6 }}>{s[0]}</div>
+                    <div style={{ fontFamily: "var(--serif)", fontSize: 14 }}>{s[1]}</div>
+                    <div className="mono" style={{ fontSize: 9, color: "var(--gray-3)" }}>{s[2]} · {s[3]}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* tipografia */}
+              <div className="kicker" style={{ marginBottom: 12 }}>02 · Tipografia</div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32, paddingBottom: 24, borderBottom: "1px solid var(--gray-4)" }}>
+                <div>
+                  <div className="mono" style={{ fontSize: 10, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--gray-2)", marginBottom: 8 }}>Newsreader · Serifada</div>
+                  <div style={{ fontFamily: "var(--serif)", fontWeight: 800, fontSize: 56, lineHeight: 1, letterSpacing: "-.02em" }}>Manchete</div>
+                  <div style={{ fontFamily: "var(--serif)", fontWeight: 700, fontSize: 28, lineHeight: 1.1, marginTop: 10 }}>Título de matéria</div>
+                  <div style={{ fontFamily: "var(--serif)", fontStyle: "italic", fontWeight: 400, fontSize: 22, lineHeight: 1.3, marginTop: 8, color: "var(--gray-1)" }}>Linha fina em itálico, leve, contemplativa.</div>
+                  <div style={{ fontFamily: "var(--serif)", fontWeight: 400, fontSize: 16, lineHeight: 1.6, marginTop: 8 }}>Corpo de texto longo. Otimizado para leitura confortável em tela.</div>
+                </div>
+                <div>
+                  <div className="mono" style={{ fontSize: 10, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--gray-2)", marginBottom: 8 }}>Inter Tight · Sans</div>
+                  <div style={{ fontFamily: "var(--sans)", fontWeight: 600, fontSize: 14, letterSpacing: ".18em", textTransform: "uppercase", marginBottom: 8 }}>KICKER · CATEGORIA</div>
+                  <div style={{ fontFamily: "var(--sans)", fontSize: 14, lineHeight: 1.55, color: "var(--gray-1)" }}>UI, dek, byline, navegação, controles. Pesos 300–600.</div>
+                  <div className="mono" style={{ fontSize: 11, letterSpacing: ".15em", marginTop: 14 }}>JETBRAINS MONO · DETALHES</div>
+                  <div className="mono" style={{ fontSize: 10, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--gray-2)", marginTop: 4 }}>METADADOS · TIMESTAMPS · LABELS DE FOTO</div>
+                </div>
+              </div>
+
+              {/* componentes */}
+              <div className="kicker" style={{ margin: "20px 0 12px" }}>03 · Componentes reutilizáveis</div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16 }}>
+                {/* card de matéria */}
+                <div>
+                  <div className="mono" style={{ fontSize: 9, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--gray-3)", marginBottom: 6 }}>card de matéria</div>
+                  <div className="photo" style={{ height: 100, position: "relative", marginBottom: 8 }}>
+                    <span style={{ position: "absolute", left: 8, top: 8, background: "var(--blue)", padding: "3px 8px", fontFamily: "var(--mono)", fontSize: 8, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--ink)" }}>tile</span>
+                  </div>
+                  <div className="kicker" style={{ fontSize: 10, marginBottom: 4 }}>Categoria</div>
+                  <div style={{ fontFamily: "var(--serif)", fontWeight: 700, fontSize: 17, lineHeight: 1.15 }}>Título da matéria em duas linhas.</div>
+                  <div className="byline" style={{ marginTop: 6, fontSize: 11 }}>por <em>Catarina Desterro</em> · 04 mai</div>
+                </div>
+
+                {/* pull quote */}
+                <div>
+                  <div className="mono" style={{ fontSize: 9, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--gray-3)", marginBottom: 6 }}>pull quote · azul</div>
+                  <div style={{ background: "var(--blue)", padding: 14 }}>
+                    <div className="mono" style={{ fontSize: 8, letterSpacing: ".22em", textTransform: "uppercase", color: "var(--blue-ink)", marginBottom: 4 }}>Destaque</div>
+                    <div style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 16, lineHeight: 1.2 }}>“A paciência não é virtude. É infraestrutura.”</div>
+                  </div>
+                  <div style={{ background: "var(--paper)", padding: 14, borderLeft: "3px solid var(--ink)", marginTop: 10 }}>
+                    <div className="mono" style={{ fontSize: 8, letterSpacing: ".22em", textTransform: "uppercase", color: "var(--gray-2)", marginBottom: 4 }}>Trecho</div>
+                    <div style={{ fontFamily: "var(--serif)", fontStyle: "italic", fontSize: 16, lineHeight: 1.2 }}>“O cliente compra a sensação de não ser demitido.”</div>
+                  </div>
+                </div>
+
+                {/* footer / nav / botões */}
+                <div>
+                  <div className="mono" style={{ fontSize: 9, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--gray-3)", marginBottom: 6 }}>controles</div>
+                  <div style={{ display: "flex", gap: 8, marginBottom: 10 }}>
+                    <button style={{ background: "var(--ink)", color: "var(--paper)", border: 0, padding: "8px 12px", fontFamily: "var(--mono)", fontSize: 10, letterSpacing: ".18em", textTransform: "uppercase" }}>Assinar →</button>
+                    <button style={{ background: "transparent", color: "var(--ink)", border: "1px solid var(--ink)", padding: "8px 12px", fontFamily: "var(--mono)", fontSize: 10, letterSpacing: ".18em", textTransform: "uppercase" }}>Salvar +</button>
+                  </div>
+                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 10 }}>
+                    {["Hoje","Marketing","Mercado"].map((c,i)=>(
+                      <span key={i} style={{ padding: "4px 8px", border: "1px solid var(--ink)", background: i===0 ? "var(--ink)" : "transparent", color: i===0 ? "var(--paper)" : "var(--ink)", fontFamily: "var(--mono)", fontSize: 9, letterSpacing: ".15em", textTransform: "uppercase" }}>{c}</span>
+                    ))}
+                  </div>
+                  <div className="mono" style={{ fontSize: 10, letterSpacing: ".15em", textTransform: "uppercase", color: "var(--gray-2)" }}>linhas finas e divisores</div>
+                  <hr className="hr" style={{ marginTop: 12 }}/>
+                  <hr className="hr-double" style={{ marginTop: 8 }}/>
+                  <hr className="hr-thin" style={{ marginTop: 8 }}/>
+                </div>
+              </div>
+            </div>
+          </DCArtboard>
+        </DCSection>
+
+        <DCSection id="desktop" title="02 · Homepage — Desktop (1280)">
+          <DCArtboard id="home-desktop" label="DESTERRO · Homepage desktop" width={1280} height={2200}>
+            <DesktopHome/>
+          </DCArtboard>
+        </DCSection>
+
+        <DCSection id="article" title="03 · Página de artigo">
+          <DCArtboard id="article-page" label="Página de artigo · template" width={1280} height={2880}>
+            <ArticlePage/>
+          </DCArtboard>
+        </DCSection>
+
+        <DCSection id="mobile" title="04 · Homepage — Mobile (390)">
+          <DCArtboard id="home-mobile" label="DESTERRO · Homepage mobile" width={390} height={2380}>
+            <MobileHome/>
+          </DCArtboard>
+        </DCSection>
+
+        <DCSection id="sobre" title="05 · Sobre Catarina">
+          <DCArtboard id="sobre-page" label="Sobre Catarina · página de apresentação + contato" width={1280} height={2400}>
+            <SobrePage/>
+          </DCArtboard>
+        </DCSection>
+
+        <DCSection id="sobre-jornal" title="06 · Sobre a Desterro">
+          <DCArtboard id="sobre-jornal-page" label="Sobre a Desterro · o que é este jornal" width={1280} height={2480}>
+            <SobreJornalPage/>
+          </DCArtboard>
+        </DCSection>
+
+        <DCSection id="artigo-marketing" title="07 · Artigo · Marketing não é Deus">
+          <DCArtboard id="artigo-marketing-page" label="Marketing não é Deus · ensaio" width={1280} height={4200}>
+            <ArtigoMarketing/>
+          </DCArtboard>
+        </DCSection>
+
+        <DCSection id="categoria" title="08 · Página de editoria">
+          <DCArtboard id="categoria-page" label="Editoria — listagem da categoria" width={1280} height={2480}>
+            <CategoriaPage/>
+          </DCArtboard>
+        </DCSection>
+
+        <DCSection id="fale" title="09 · Fale comigo">
+          <DCArtboard id="fale-page" label="Fale comigo · correspondência" width={1280} height={1500}>
+            <FaleComigoPage/>
+          </DCArtboard>
+        </DCSection>
+
+        <DCSection id="erro" title="10 · 404">
+          <DCArtboard id="not-found-page" label="Página não encontrada · 404" width={1280} height={980}>
+            <NotFoundPage/>
+          </DCArtboard>
+        </DCSection>
+      </DesignCanvas>
+    );
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+  </script>
+</body>
+</html>

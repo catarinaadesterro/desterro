@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>DESTERRO — print</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css"/>
+
+  <style>
+    html, body { margin: 0; padding: 0; background: #1a1815; }
+    body { font-family: var(--sans); }
+
+    .page {
+      background: var(--paper-warm);
+      margin: 24px auto;
+      box-shadow: 0 4px 24px rgba(0,0,0,.4);
+      overflow: hidden;
+      page-break-after: always;
+      break-after: page;
+    }
+    .page > * { display: block; }
+    .page-label {
+      max-width: 1280px;
+      margin: 32px auto 8px;
+      padding: 0 8px;
+      color: #b8b2a8;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    @page { size: 1320px 2920px; margin: 0; }
+
+    @media print {
+      html, body { background: white; }
+      .page-label { display: none; }
+      .page {
+        margin: 0 auto;
+        box-shadow: none;
+        page-break-after: always;
+        break-after: page;
+      }
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="desktop-home.jsx"></script>
+  <script type="text/babel" src="article.jsx"></script>
+  <script type="text/babel" src="mobile-home.jsx"></script>
+  <script type="text/babel" src="sobre.jsx"></script>
+  <script type="text/babel" src="sobre-jornal.jsx"></script>
+
+  <script type="text/babel">
+    const Page = ({ label, w, h, children }) => (
+      <>
+        <div className="page-label">{label}</div>
+        <div className="page" style={{ width: w, minHeight: h }}>
+          {children}
+        </div>
+      </>
+    );
+
+    const App = () => (
+      <div>
+        <Page label="01 · Homepage Desktop" w={1280} h={2680}>
+          <DesktopHome/>
+        </Page>
+        <Page label="02 · Página de artigo" w={1280} h={2880}>
+          <ArticlePage/>
+        </Page>
+        <Page label="03 · Sobre Catarina" w={1280} h={2400}>
+          <SobrePage/>
+        </Page>
+        <Page label="04 · Sobre a Desterro" w={1280} h={2480}>
+          <SobreJornalPage/>
+        </Page>
+        <Page label="05 · Homepage Mobile" w={390} h={2380}>
+          <MobileHome/>
+        </Page>
+      </div>
+    );
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+
+    // auto-print after fonts + render settle
+    (async () => {
+      try { if (document.fonts && document.fonts.ready) await document.fonts.ready; } catch (e) {}
+      await new Promise(r => setTimeout(r, 800));
+      window.print();
+    })();
+  </script>
+</body>
+</html>

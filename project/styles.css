@@ -1,0 +1,184 @@
+/* DESTERRO — design tokens */
+:root {
+  --ink: #0E0E0C;
+  --ink-2: #1f1d18;
+  --paper: #EDE6D6;       /* bege */
+  --paper-warm: #F5F0E3;  /* off-white quente */
+  --paper-cool: #FAF7EE;
+  --rule: #1a1916;
+  --gray-1: #2b2a26;
+  --gray-2: #5e5a52;
+  --gray-3: #8a8479;
+  --gray-4: #b8b2a8;
+  --gray-5: #d8d2c4;
+  --blue: #C7D6E0;        /* azul clarinho pastel */
+  --blue-deep: #8FA6B5;
+  --blue-ink: #2c3e4a;
+
+  --serif: "Newsreader", "Source Serif 4", "Times New Roman", Georgia, serif;
+  --sans: "Inter Tight", "Inter", -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+
+/* photo placeholder — grainy B&W stripes with caption */
+.photo {
+  position: relative;
+  background:
+    repeating-linear-gradient(135deg, rgba(0,0,0,.04) 0 2px, transparent 2px 6px),
+    repeating-linear-gradient(45deg, rgba(255,255,255,.05) 0 1px, transparent 1px 4px),
+    linear-gradient(180deg, #2a2825 0%, #4a4640 45%, #1a1815 100%);
+  color: #ece7da;
+  overflow: hidden;
+  isolation: isolate;
+}
+.photo::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.4px),
+    radial-gradient(rgba(0,0,0,.18) 1px, transparent 1.4px);
+  background-size: 3px 3px, 5px 5px;
+  background-position: 0 0, 1px 2px;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+.photo .photo-label {
+  position: absolute;
+  left: 14px; bottom: 12px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #f0ead9;
+  background: rgba(14,14,12,.55);
+  padding: 4px 8px;
+  border: 1px solid rgba(240,234,217,.25);
+  z-index: 2;
+}
+.photo .photo-credit {
+  position: absolute;
+  right: 14px; bottom: 12px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(240,234,217,.7);
+  z-index: 2;
+}
+
+/* engraving placeholder — vintage hatched B&W frame */
+.engraving {
+  position: relative;
+  background-color: #efe8d6;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(14,14,12,.55) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(-45deg, rgba(14,14,12,.45) 0 1px, transparent 1px 5px),
+    radial-gradient(rgba(0,0,0,.18) 1px, transparent 1.4px);
+  background-size: auto, auto, 4px 4px;
+  border: 1px solid var(--ink);
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--ink);
+}
+.engraving::before {
+  content: "";
+  position: absolute; inset: 8px;
+  border: 1px solid rgba(14,14,12,.55);
+  pointer-events: none;
+  z-index: 1;
+}
+.engraving::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(rgba(255,255,255,.12) 1px, transparent 1.4px),
+    radial-gradient(rgba(0,0,0,.15) 1px, transparent 1.4px);
+  background-size: 3px 3px, 5px 5px;
+  background-position: 0 0, 1px 2px;
+  mix-blend-mode: multiply;
+  opacity: .6;
+  pointer-events: none;
+}
+.engraving .eng-label {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+.engraving .eng-label > span {
+  background: var(--paper-warm);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 8px 14px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: .02em;
+}
+.engraving .eng-corner {
+  position: absolute;
+  bottom: 14px; right: 14px;
+  z-index: 2;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--paper-warm);
+  padding: 3px 6px;
+  border: 1px solid var(--ink);
+}
+
+/* shared text utilities */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gray-2);
+}
+.kicker {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.byline {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--gray-2);
+}
+.byline em {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--ink);
+}
+.serif { font-family: var(--serif); }
+.sans { font-family: var(--sans); }
+.mono { font-family: var(--mono); }
+
+/* hairline */
+.hr {
+  height: 1px;
+  background: var(--ink);
+  border: 0;
+  margin: 0;
+}
+.hr-thin {
+  height: 1px;
+  background: var(--gray-4);
+  border: 0;
+  margin: 0;
+}
+.hr-double {
+  border: 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  height: 4px;
+  margin: 0;
+}

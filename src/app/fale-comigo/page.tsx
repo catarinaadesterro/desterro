@@ -15,9 +15,9 @@ export default function FaleComigoPage() {
       <MiniHeader />
 
       {/* Header */}
-      <section style={{ padding: '100px 40px 0', maxWidth: 1100 }}>
+      <section style={{ padding: '100px var(--px) 0', maxWidth: 1100 }}>
         <div className="eyebrow" style={{ marginBottom: 24 }}>CORRESPONDÊNCIA · DESTERRO</div>
-        <h1 style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 168, lineHeight: .88, letterSpacing: '-.035em', margin: '0 0 28px' }}>
+        <h1 style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 'var(--fs-display)', lineHeight: .88, letterSpacing: '-.035em', margin: '0 0 28px' }}>
           Fale<br /><span style={{ fontStyle: 'italic', fontWeight: 500 }}>comigo.</span>
         </h1>
         <p style={{ fontFamily: 'var(--serif)', fontWeight: 300, fontSize: 26, lineHeight: 1.45, color: 'var(--gray-1)', margin: 0, maxWidth: 720 }}>
@@ -26,7 +26,7 @@ export default function FaleComigoPage() {
       </section>
 
       {/* Two-column: contacts | form */}
-      <section style={{ padding: '80px 40px 0', display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 80, alignItems: 'start' }}>
+      <section className="rg-contacts sec" style={{ padding: '80px var(--px) 0' }}>
         {/* Contacts */}
         <div>
           <div className="kicker" style={{ marginBottom: 24 }}>Canais diretos</div>

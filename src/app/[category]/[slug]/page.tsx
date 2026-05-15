@@ -86,7 +86,7 @@ export default async function ArticleSlugPage({ params }: { params: { category: 
         <p style={{ fontFamily: 'var(--serif)', fontWeight: 300, fontSize: 26, lineHeight: 1.32, color: 'var(--gray-1)', margin: '0 0 24px', maxWidth: 880 }}>
           {article.subtitle}
         </p>
-        <div style={{ display: 'flex', gap: 0, alignItems: 'stretch', padding: '14px 0', borderTop: '1px solid var(--ink)', borderBottom: '1px solid var(--ink)' }}>
+        <div className="article-meta">
           <div style={{ paddingRight: 24, borderRight: '1px solid var(--gray-4)' }}>
             <div className="kicker" style={{ color: 'var(--gray-2)', marginBottom: 4 }}>Por</div>
             <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 22 }}>Catarina Desterro</div>

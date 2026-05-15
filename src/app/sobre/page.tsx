@@ -35,7 +35,7 @@ export default function SobrePage() {
       </section>
 
       {/* Photo + text */}
-      <section style={{ padding: '32px 40px 0', display: 'grid', gridTemplateColumns: '520px 1fr', gap: 40, alignItems: 'start' }}>
+      <section className="rg-photo sec" style={{ padding: '32px var(--px) 0' }}>
         <div>
           <div style={{ position: 'relative' }}>
             <Image src="/images/catarina.jpeg" alt="Catarina Desterro" width={520} height={640} style={{ width: '100%', height: 640, objectFit: 'cover', display: 'block', filter: 'grayscale(1) contrast(1.05)' }} />
@@ -109,7 +109,7 @@ export default function SobrePage() {
           </div>
 
           {/* Fact strip */}
-          <div style={{ marginTop: 32, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderTop: '1px solid var(--ink)', borderBottom: '1px solid var(--ink)' }}>
+          <div className="fact-strip">
             {[['Idade','23'],['Origem','Brasília → SLZ → SP'],['Formação','Publicidade · ESPM'],['Hoje','Marketing · SEO']].map(([k,v], i) => (
               <div key={i} style={{ padding: '14px 16px', borderRight: i < 3 ? '1px solid var(--gray-4)' : 0 }}>
                 <div className="kicker" style={{ color: 'var(--gray-2)', marginBottom: 4, fontSize: 10 }}>{k}</div>
@@ -121,13 +121,13 @@ export default function SobrePage() {
       </section>
 
       {/* Contact form */}
-      <section style={{ padding: '72px 40px 0' }}>
+      <section style={{ padding: '72px var(--px) 0' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr auto', alignItems: 'center', gap: 16, marginBottom: 24 }}>
           <span className="kicker" style={{ fontSize: 12 }}>FALE COMIGO</span>
           <hr className="hr" />
           <span className="mono" style={{ fontSize: 10, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--gray-2)' }}>respostas em até 3 dias úteis</span>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.3fr', gap: 40, alignItems: 'start' }}>
+        <div className="rg-form-2">
           <div>
             <h2 style={{ fontFamily: 'var(--serif)', fontWeight: 700, fontStyle: 'italic', fontSize: 48, lineHeight: 1, margin: '0 0 16px' }}>Manda uma<br />mensagem.</h2>
             <p style={{ fontFamily: 'var(--serif)', fontWeight: 300, fontSize: 18, lineHeight: 1.45, color: 'var(--gray-1)', margin: '0 0 16px', maxWidth: 420 }}>
@@ -136,7 +136,7 @@ export default function SobrePage() {
             <div className="byline" style={{ color: 'var(--gray-2)' }}>Prefere e-mail direto? <em>catarinabaima123@gmail.com</em></div>
           </div>
           <form style={{ border: '1px solid var(--ink)', background: 'var(--paper)', padding: 24 }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginBottom: 14 }}>
+            <div className="form-2col">
               <label style={{ display: 'block' }}>
                 <div className="kicker" style={{ marginBottom: 6, fontSize: 10 }}>Seu nome</div>
                 <input type="text" placeholder="como devo te chamar" style={{ width: '100%', border: 0, borderBottom: '1px solid var(--ink)', background: 'transparent', padding: '8px 0', fontFamily: 'var(--serif)', fontSize: 16, outline: 'none', color: 'var(--ink)' }} />

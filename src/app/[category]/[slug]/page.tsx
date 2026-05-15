@@ -79,8 +79,8 @@ export default async function ArticleSlugPage({ params }: { params: { category: 
       </div>
 
       {/* Title block */}
-      <section style={{ padding: '20px 40px 0', maxWidth: 1100 }}>
-        <h1 style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 96, lineHeight: .96, letterSpacing: '-.025em', margin: '0 0 18px' }}>
+      <section className="sec" style={{ padding: '20px var(--px) 0', maxWidth: 1100 }}>
+        <h1 style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 'var(--fs-article-title)', lineHeight: .96, letterSpacing: '-.025em', margin: '0 0 18px' }}>
           {article.title}
         </h1>
         <p style={{ fontFamily: 'var(--serif)', fontWeight: 300, fontSize: 26, lineHeight: 1.32, color: 'var(--gray-1)', margin: '0 0 24px', maxWidth: 880 }}>
@@ -109,8 +109,8 @@ export default async function ArticleSlugPage({ params }: { params: { category: 
       </section>
 
       {/* Hero image */}
-      <section style={{ padding: '24px 40px 0' }}>
-        <div style={{ height: 460, position: 'relative', background: '#efe8d6', border: '1px solid var(--ink)', overflow: 'hidden' }}>
+      <section className="sec" style={{ padding: '24px var(--px) 0' }}>
+        <div className="hero-img" style={{ height: 460, position: 'relative', background: '#efe8d6', border: '1px solid var(--ink)', overflow: 'hidden' }}>
           {article.coverImage ? (
             <>
               <Image src={article.coverImage} alt={article.coverAlt ?? article.title} fill style={{ objectFit: 'cover' }} />
@@ -132,9 +132,9 @@ export default async function ArticleSlugPage({ params }: { params: { category: 
       </section>
 
       {/* Body */}
-      <section style={{ padding: '40px 40px 0', display: 'grid', gridTemplateColumns: '60px 1fr 280px', gap: 36, alignItems: 'start' }}>
+      <section className="rg-article sec" style={{ padding: '40px var(--px) 0' }}>
         {/* Left label */}
-        <aside style={{ position: 'sticky', top: 20 }}>
+        <aside className="art-label" style={{ position: 'sticky', top: 20 }}>
           <div className="kicker" style={{ color: 'var(--gray-2)', marginBottom: 10, writingMode: 'vertical-rl', transform: 'rotate(180deg)', letterSpacing: '.3em' }}>
             ensaio · {article.category}
           </div>
@@ -149,7 +149,7 @@ export default async function ArticleSlugPage({ params }: { params: { category: 
         </article>
 
         {/* Right sidebar */}
-        <aside style={{ position: 'sticky', top: 20 }}>
+        <aside className="art-sidebar" style={{ position: 'sticky', top: 20 }}>
           <div style={{ background: 'var(--paper)', padding: 18, marginBottom: 20 }}>
             <div className="kicker" style={{ marginBottom: 8 }}>Sobre a autora</div>
             <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
@@ -169,13 +169,13 @@ export default async function ArticleSlugPage({ params }: { params: { category: 
       </section>
 
       {/* Leia também */}
-      <section style={{ padding: '56px 40px 0' }}>
+      <section className="sec" style={{ padding: '56px var(--px) 0' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr auto', alignItems: 'center', gap: 16, marginBottom: 24 }}>
           <span className="kicker" style={{ fontSize: 12 }}>Leia também</span>
           <hr className="hr" />
           <span className="mono" style={{ fontSize: 10, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--gray-2)' }}>textos relacionados</span>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 24 }}>
+        <div className="rg-3col">
           {[0,1,2].map(i => (
             <ArticleCard key={i} article={relatedArticles[i]} corner={String(i+1).padStart(2,'0')} imageHeight={180} />
           ))}

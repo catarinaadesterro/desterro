@@ -51,12 +51,11 @@ export default function CategoryPage({ params }: { params: { category: string } 
       <FullHeader activeCategory={params.category} />
 
       {/* Category header */}
-      <section style={{ padding: '60px 40px 0' }}>
+      <section className="sec" style={{ padding: '60px var(--px) 0' }}>
         <div className="eyebrow" style={{ marginBottom: 18 }}>EDITORIA</div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: 60, alignItems: 'end' }}>
-          <h1 style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 168, lineHeight: .88, letterSpacing: '-.035em', margin: 0 }}>
-            {label.includes('ã') ? label.split('ã')[0] : label.slice(0, -1)}<br />
-            <span style={{ fontStyle: 'italic', fontWeight: 500 }}>{label.endsWith('ão') ? 'ão.' : label.slice(-1) + '.'}</span>
+        <div className="rg-cat-hdr">
+          <h1 style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 'var(--fs-display)', lineHeight: .9, letterSpacing: '-.03em', margin: 0 }}>
+            {label}<span style={{ fontStyle: 'italic', fontWeight: 500 }}>.</span>
           </h1>
           <div>
             <div className="kicker" style={{ marginBottom: 10 }}>Sobre esta editoria</div>
@@ -71,9 +70,9 @@ export default function CategoryPage({ params }: { params: { category: string } 
       </section>
 
       {/* Lead item or placeholder */}
-      <section style={{ padding: '44px 40px 0', display: 'grid', gridTemplateColumns: '1.05fr 1fr', gap: 44, alignItems: 'start' }}>
+      <section className="rg-lead sec" style={{ padding: '44px var(--px) 0' }}>
         {lead?.coverImage ? (
-          <div style={{ position: 'relative', height: 520, border: '1px solid var(--ink)', overflow: 'hidden' }}>
+          <div className="lead-img" style={{ position: 'relative', height: 420, border: '1px solid var(--ink)', overflow: 'hidden' }}>
             <Image src={lead.coverImage} alt={lead.coverAlt ?? lead.title} fill style={{ objectFit: 'cover' }} />
           </div>
         ) : (
@@ -83,7 +82,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
           <div style={{ paddingTop: 8 }}>
             <div className="kicker" style={{ marginBottom: 12 }}>{lead.category}</div>
             <Link href={`/${lead.category}/${lead.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-              <h2 style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 64, lineHeight: .98, letterSpacing: '-.02em', margin: '0 0 18px' }}>
+              <h2 style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 'var(--fs-lead-card)', lineHeight: .98, letterSpacing: '-.02em', margin: '0 0 18px' }}>
                 {lead.title}
               </h2>
             </Link>
@@ -112,13 +111,13 @@ export default function CategoryPage({ params }: { params: { category: string } 
       {/* Grid */}
       {(grid.length > 0 || articles.length === 0) && (
         <>
-          <div style={{ padding: '72px 40px 0' }}>
+          <div className="sec" style={{ padding: '72px var(--px) 0' }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', alignItems: 'center', gap: 16 }}>
               <span className="kicker" style={{ fontSize: 12 }}>ARQUIVO DA EDITORIA</span>
               <hr className="hr" />
             </div>
           </div>
-          <section style={{ padding: '28px 40px 0', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32 }}>
+          <section className="rg-3col sec" style={{ padding: '28px var(--px) 0' }}>
             {[0,1,2].map(i => (
               <ArticleCard key={i} article={grid[i]} corner={String(i+2).padStart(2,'0')} imageHeight={260} />
             ))}

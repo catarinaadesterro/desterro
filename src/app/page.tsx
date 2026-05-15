@@ -18,7 +18,7 @@ export default function HomePage() {
       <FullHeader />
 
       {/* HERO + RIGHT RAIL */}
-      <section style={{ padding: '28px 40px 0', display: 'grid', gridTemplateColumns: '1fr 320px', gap: 32 }}>
+      <section className="rg-hero sec" style={{ padding: '28px var(--px) 0' }}>
         {/* HERO */}
         <article>
           {featured ? (
@@ -27,7 +27,7 @@ export default function HomePage() {
                 <span className="kicker">{featured.category}</span>
                 <span className="mono" style={{ fontSize: 10, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--gray-2)' }}>{featured.readTime}</span>
               </div>
-              <h1 style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 72, lineHeight: .98, letterSpacing: '-.02em', margin: '0 0 14px' }}>
+              <h1 style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 'var(--fs-hero)', lineHeight: .98, letterSpacing: '-.02em', margin: '0 0 14px' }}>
                 {featured.title}
               </h1>
               <p style={{ fontFamily: 'var(--serif)', fontWeight: 300, fontSize: 22, lineHeight: 1.35, color: 'var(--gray-1)', margin: '0 0 16px', maxWidth: 760 }}>
@@ -68,7 +68,7 @@ export default function HomePage() {
         </article>
 
         {/* RIGHT RAIL */}
-        <aside style={{ borderLeft: '1px solid var(--gray-4)', paddingLeft: 24 }}>
+        <aside className="hp-rail" style={{ borderLeft: '1px solid var(--gray-4)', paddingLeft: 24 }}>
           <div className="kicker" style={{ marginBottom: 12 }}>Em destaque</div>
           {[1,2,3,4].map((n, i) => (
             <div key={i} style={{ display: 'grid', gridTemplateColumns: '36px 1fr', gap: 12, padding: '14px 0', borderTop: i === 0 ? '1px solid var(--ink)' : '1px solid var(--gray-5)' }}>
@@ -99,14 +99,14 @@ export default function HomePage() {
       </div>
 
       {/* THREE-COLUMN GRID */}
-      <section style={{ padding: '24px 40px 0', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 28 }}>
+      <section className="rg-3col sec" style={{ padding: '24px var(--px) 0' }}>
         {[0,1,2].map((i) => (
           <ArticleCard key={i} article={gridArticles[i]} corner={String(i+2).padStart(2,'0')} />
         ))}
       </section>
 
       {/* OPINIÃO + LISTA */}
-      <section style={{ padding: '44px 40px 0', display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 32, alignItems: 'stretch' }}>
+      <section className="rg-2col sec" style={{ padding: '44px var(--px) 0' }}>
         <article style={{ background: 'var(--paper)', padding: 28, position: 'relative' }}>
           <div className="kicker" style={{ marginBottom: 12 }}>Opinião</div>
           <h2 style={{ fontFamily: 'var(--serif)', fontWeight: 700, fontStyle: 'italic', fontSize: 44, lineHeight: 1, margin: '0 0 14px', letterSpacing: '-.01em', color: 'var(--gray-3)' }}>

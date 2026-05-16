@@ -163,7 +163,8 @@ a { color: inherit; }
 
 /* ── Responsive system ── */
 
-html, body { overflow-x: hidden; max-width: 100%; }
+html { overflow-x: hidden; }
+body { overflow-x: clip; max-width: 100%; } /* clip em vez de hidden — não quebra position:sticky */
 
 h1, h2, h3, h4, p { overflow-wrap: break-word; word-break: break-word; }
 
@@ -280,7 +281,7 @@ h1, h2, h3, h4, p { overflow-wrap: break-word; word-break: break-word; }
 .form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
 @media (max-width: 640px) { .form-2col { grid-template-columns: 1fr; } }
 
-/* MiniHeader — hide scrollbar, keep nav scrollable; hide date on mobile */
+/* MiniHeader — scrollable category nav, hide date on mobile */
 .mini-header-nav { scrollbar-width: none; }
 .mini-header-nav::-webkit-scrollbar { display: none; }
 @media (max-width: 640px) {
@@ -289,34 +290,41 @@ h1, h2, h3, h4, p { overflow-wrap: break-word; word-break: break-word; }
 
 /* ── Mobile header redesign ── */
 
-/* UtilityBar: becomes white date+search bar on mobile */
+/* UtilityBar: white on mobile, mostra só data + busca */
 @media (max-width: 640px) {
   .util-bar { background: var(--paper-warm) !important; color: var(--ink) !important; border-bottom: 1px solid var(--gray-5); }
   .util-sec-link { display: none !important; }
 }
 
-/* Sticky header wrapper — only on mobile */
+/* Sticky header — funciona com overflow-x: clip no body */
 @media (max-width: 640px) {
   .sticky-header-wrap { position: sticky; top: 0; z-index: 100; }
 }
 
-/* Mobile category nav bar — black, scrollable, hidden on desktop */
-.mobile-nav-bar { display: none; }
+/* Barra preta mobile com links secundários (Sobre, Fale comigo) */
+.mobile-secondary-nav { display: none; }
 @media (max-width: 640px) {
-  .mobile-nav-bar {
+  .mobile-secondary-nav {
     display: flex;
     background: var(--ink);
     color: var(--paper);
-    padding: 11px var(--px, 20px);
-    gap: 22px;
-    overflow-x: auto;
-    scrollbar-width: none;
+    padding: 10px var(--px, 20px);
+    gap: 0;
+    justify-content: space-around;
+    border-bottom: 1px solid var(--gray-1);
   }
-  .mobile-nav-bar::-webkit-scrollbar { display: none; }
-  .mobile-nav-bar a { color: var(--paper); text-decoration: none; white-space: nowrap; flex-shrink: 0; }
-  /* On mobile, desktop nav is replaced by mobile-nav-bar */
-  .fh-nav { display: none !important; }
-  .mini-header-nav { display: none !important; }
+  .mobile-secondary-nav a {
+    color: var(--paper);
+    text-decoration: none;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  /* FullHeader: fh-nav scrollável no mobile (como o mini-header-nav) */
+  .fh-nav { flex-wrap: nowrap !important; overflow-x: auto; scrollbar-width: none; justify-content: flex-start !important; gap: 24px !important; }
+  .fh-nav::-webkit-scrollbar { display: none; }
 }
 
 /* Hero image tese overlay — absolute on desktop, flows below image on mobile */

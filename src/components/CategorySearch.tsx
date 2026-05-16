@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { ArticleCard } from './ArticleCard';
 import type { ArticleMeta } from '@/lib/types';
 
@@ -9,6 +9,7 @@ interface Props {
 
 export function CategorySearch({ articles }: Props) {
   const [query, setQuery] = useState('');
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const filtered = query.trim()
     ? articles.filter(a =>
@@ -23,9 +24,10 @@ export function CategorySearch({ articles }: Props) {
         <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr auto', alignItems: 'center', gap: 16 }}>
           <span className="kicker" style={{ fontSize: 12 }}>ARQUIVO DA EDITORIA</span>
           <hr className="hr" />
-          <label style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <label style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'text' }} onClick={() => inputRef.current?.focus()}>
             <span className="mono" style={{ fontSize: 9, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--gray-2)' }}>⌕</span>
             <input
+              ref={inputRef}
               type="search"
               value={query}
               onChange={e => setQuery(e.target.value)}

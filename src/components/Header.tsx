@@ -16,7 +16,7 @@ const NAV_ITEMS: { label: string; href: string; italic?: boolean; star?: boolean
 function MobileSecondaryNav() {
   return (
     <div className="mobile-secondary-nav">
-      <Link href="/sobre-a-desterro">Sobre o Jornal</Link>
+      <Link href="/sobre-a-desterro">Sobre o Desterro</Link>
       <Link href="/sobre">Sobre Catarina</Link>
       <Link href="/fale-comigo">Fale Comigo</Link>
     </div>
@@ -103,7 +103,7 @@ export function FullHeader({ activeCategory }: { activeCategory?: string }) {
               </div>
             </div>
             <div className="fh-right mono" style={{ textAlign: 'right', fontSize: 10, letterSpacing: '.22em', textTransform: 'uppercase', color: 'var(--ink)' }}>
-              <Link href="/sobre-a-desterro" style={{ color: 'inherit', textDecoration: 'none' }}>Sobre a Desterro →</Link>
+              <Link href="/sobre-a-desterro" style={{ color: 'inherit', textDecoration: 'none' }}>Sobre o Desterro →</Link>
             </div>
           </div>
           <nav style={{

@@ -38,7 +38,7 @@ export default function NotFound() {
           <div className="mono" style={{ fontSize: 10, letterSpacing: '.22em', textTransform: 'uppercase', color: 'var(--blue-ink)', marginBottom: 12 }}>Sugestões</div>
           <div style={{ display: 'grid', gap: 10, fontFamily: 'var(--serif)', fontSize: 18 }}>
             <Link href="/" style={{ color: 'var(--ink)', textDecoration: 'none', borderBottom: '1px solid var(--ink)', paddingBottom: 4 }}>→ Ir para a home</Link>
-            <Link href="/sobre-a-desterro" style={{ color: 'var(--ink)', textDecoration: 'none', borderBottom: '1px solid var(--ink)', paddingBottom: 4 }}>→ Ler sobre a Desterro</Link>
+            <Link href="/sobre-a-desterro" style={{ color: 'var(--ink)', textDecoration: 'none', borderBottom: '1px solid var(--ink)', paddingBottom: 4 }}>→ Ler sobre o Desterro</Link>
             <Link href="/fale-comigo" style={{ color: 'var(--ink)', textDecoration: 'none', borderBottom: '1px solid var(--ink)', paddingBottom: 4 }}>→ Falar comigo</Link>
           </div>
         </div>

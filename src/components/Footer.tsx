@@ -28,7 +28,7 @@ export function Footer() {
           <div className="kicker" style={{ color: 'var(--blue)', marginBottom: 10 }}>Catarina</div>
           <div style={{ display: 'grid', gap: 6, fontFamily: 'var(--sans)', fontSize: 13 }}>
             <Link href="/sobre" style={{ color: 'inherit', textDecoration: 'none' }}>Sobre Catarina</Link>
-            <Link href="/sobre-a-desterro" style={{ color: 'inherit', textDecoration: 'none' }}>Sobre a Desterro</Link>
+            <Link href="/sobre-a-desterro" style={{ color: 'inherit', textDecoration: 'none' }}>Sobre o Desterro</Link>
             <Link href="/fale-comigo" style={{ color: 'inherit', textDecoration: 'none' }}>Fale comigo</Link>
           </div>
         </div>

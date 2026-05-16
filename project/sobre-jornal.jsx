@@ -98,7 +98,7 @@ const SobreJornalPage = () => {
             Entre o que eu observo e o que eu tento entender. Entre o mercado e as pessoas. Entre o ruído das mudanças e a tentativa de organizar algum sentido nisso tudo.
           </p>
           <p style={{ margin: "0 0 18px" }}>
-            Aqui, escrevo sobre marketing, cultura e comportamento, mas também sobre transformação — a minha e do mundo ao redor.
+            Aqui, escrevo sobre marketing, cultura e comportamento, mas também sobre transformação, a minha e do mundo ao redor.
           </p>
 
           {/* BEGE pull quote — manifesto */}

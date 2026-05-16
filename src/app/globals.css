@@ -217,6 +217,9 @@ h1, h2, h3, h4, p { overflow-wrap: break-word; word-break: break-word; }
   .rg-photo   { grid-template-columns: 1fr; }
 }
 
+.author-box-link > div { transition: background .15s; }
+.author-box-link:hover > div { background: var(--blue) !important; }
+
 /* Mobile: ≤ 640px */
 @media (max-width: 640px) {
   .rg-3col { grid-template-columns: 1fr; }

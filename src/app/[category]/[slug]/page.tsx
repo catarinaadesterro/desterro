@@ -153,21 +153,23 @@ export default async function ArticleSlugPage({ params }: { params: { category: 
 
         {/* Right sidebar */}
         <aside className="art-sidebar" style={{ position: 'sticky', top: 20 }}>
-          <div style={{ background: 'var(--paper)', padding: 18, marginBottom: 20 }}>
-            <div className="kicker" style={{ marginBottom: 8 }}>Sobre a autora</div>
-            <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-              <Image
-                src="/images/catarina.jpeg"
-                alt="Catarina Desterro"
-                width={72} height={88}
-                style={{ objectFit: 'cover', filter: 'grayscale(1) contrast(1.08)', border: '1px solid var(--ink)', flexShrink: 0 }}
-              />
-              <div>
-                <div style={{ fontFamily: 'var(--serif)', fontWeight: 600, fontSize: 16, lineHeight: 1.2 }}>Catarina Desterro</div>
-                <div className="byline" style={{ marginTop: 4, lineHeight: 1.4 }}>23 anos. Marketing, estratégia, conteúdo e SEO. Escreve o que ninguém tem coragem de falar.</div>
+          <Link href="/fale-comigo" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }} className="author-box-link">
+            <div style={{ background: 'var(--paper)', padding: 18, marginBottom: 20 }}>
+              <div className="kicker" style={{ marginBottom: 8 }}>Sobre a autora</div>
+              <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+                <Image
+                  src="/images/catarina.jpeg"
+                  alt="Catarina Desterro"
+                  width={72} height={88}
+                  style={{ objectFit: 'cover', filter: 'grayscale(1) contrast(1.08)', border: '1px solid var(--ink)', flexShrink: 0 }}
+                />
+                <div>
+                  <div style={{ fontFamily: 'var(--serif)', fontWeight: 600, fontSize: 16, lineHeight: 1.2 }}>Catarina Desterro</div>
+                  <div className="byline" style={{ marginTop: 4, lineHeight: 1.4 }}>23 anos. Marketing, estratégia, conteúdo e SEO. Escreve o que ninguém tem coragem de falar.</div>
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
         </aside>
       </section>
 

@@ -47,7 +47,7 @@ const SobrePage = () => {
           Catarina<br />
           <span style={{ fontStyle: "italic", fontWeight: 500 }}>Desterro.</span>
         </h1>
-        <p style={{ fontFamily: "var(--serif)", fontWeight: 300, fontSize: 26, lineHeight: 1.32, color: "var(--gray-1)", margin: "0 0 24px", maxWidth: 880 }}>23 anos. Brasiliense de nascimento, maranhense de sangue, paulistana por necessidade. Trabalho com marketing, escrevo o que sobra disso.
+        <p style={{ fontFamily: "var(--serif)", fontWeight: 300, fontSize: 26, lineHeight: 1.32, color: "var(--gray-1)", margin: "0 0 24px", maxWidth: 880 }}>23 anos. Brasiliense de nascimento, maranhense de sangue, paulistana por orientação profissional. Trabalho com marketing, escrevo o que sobra disso.
 
         </p>
       </section>

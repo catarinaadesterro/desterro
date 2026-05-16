@@ -3,18 +3,19 @@ import type { Metadata } from 'next';
 import { getArticlesByCategory } from '@/lib/articles';
 import { UtilityBar, FullHeader } from '@/components/Header';
 import { MiniFooter } from '@/components/Footer';
-import { ArticleCard } from '@/components/ArticleCard';
 import { EngravedPlaceholder } from '@/components/EngravedPlaceholder';
+import { CategorySearch } from '@/components/CategorySearch';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const VALID_CATEGORIES = ['marketing', 'mercado', 'carreira', 'empreendedorismo', 'opiniao'];
+const VALID_CATEGORIES = ['marketing', 'mercado', 'carreira', 'empreendedorismo', 'guest-posts', 'opiniao'];
 
 const CATEGORY_LABELS: Record<string, string> = {
   marketing: 'Marketing',
   mercado: 'Mercado',
   carreira: 'Carreira',
   empreendedorismo: 'Empreendedorismo',
+  'guest-posts': 'Guest Posts',
   opiniao: 'Opinião',
 };
 
@@ -23,6 +24,7 @@ const CATEGORY_DESCRIPTIONS: Record<string, string> = {
   mercado: 'Economia, negócios, tendências e o que está mudando antes de você perceber.',
   carreira: 'Trabalho, ambição, burnout e o que realmente importa dentro de uma empresa.',
   empreendedorismo: 'Startups, founders, e a realidade que o LinkedIn não mostra.',
+  'guest-posts': 'Vozes convidadas. Perspectivas que valem a leitura.',
   opiniao: 'O que eu penso, sem filtro, sem pedido de licença.',
 };
 
@@ -43,7 +45,8 @@ export default function CategoryPage({ params }: { params: { category: string } 
   const description = CATEGORY_DESCRIPTIONS[params.category];
   const articles = getArticlesByCategory(params.category);
   const lead = articles[0];
-  const grid = articles.slice(1, 4);
+  const archiveArticles = articles.slice(1);
+  const isGuestPosts = params.category === 'guest-posts';
 
   return (
     <div style={{ width: '100%', background: 'var(--paper-warm)', color: 'var(--ink)', fontFamily: 'var(--sans)' }}>
@@ -55,6 +58,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
         <div className="eyebrow" style={{ marginBottom: 18 }}>EDITORIA</div>
         <div className="rg-cat-hdr">
           <h1 style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 'clamp(28px, 8vw, 96px)', lineHeight: .9, letterSpacing: '-.03em', margin: 0 }}>
+            {isGuestPosts && <span style={{ marginRight: 12 }}>★</span>}
             {label}<span style={{ fontStyle: 'italic', fontWeight: 500 }}>.</span>
           </h1>
           <div>
@@ -108,22 +112,8 @@ export default function CategoryPage({ params }: { params: { category: string } 
         )}
       </section>
 
-      {/* Grid */}
-      {(grid.length > 0 || articles.length === 0) && (
-        <>
-          <div className="sec" style={{ padding: '72px var(--px) 0' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', alignItems: 'center', gap: 16 }}>
-              <span className="kicker" style={{ fontSize: 12 }}>ARQUIVO DA EDITORIA</span>
-              <hr className="hr" />
-            </div>
-          </div>
-          <section className="rg-3col sec" style={{ padding: '28px var(--px) 0' }}>
-            {[0,1,2].map(i => (
-              <ArticleCard key={i} article={grid[i]} corner={String(i+2).padStart(2,'0')} imageHeight={260} />
-            ))}
-          </section>
-        </>
-      )}
+      {/* Archive with search — always visible */}
+      <CategorySearch articles={archiveArticles} />
 
       <div style={{ marginTop: 80 }}>
         <MiniFooter />

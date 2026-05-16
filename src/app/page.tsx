@@ -39,18 +39,19 @@ export default function HomePage() {
                 <span className="byline">{featured.date}</span>
               </div>
               {/* Hero image */}
-              <div style={{ height: 380, position: 'relative', border: '1px solid var(--ink)', overflow: 'hidden' }}>
-                {featured.coverImage ? (
-                  <>
+              <div style={{ position: 'relative' }}>
+                <div style={{ height: 380, position: 'relative', border: '1px solid var(--ink)', overflow: 'hidden' }}>
+                  {featured.coverImage ? (
                     <Image src={featured.coverImage} alt={featured.coverAlt ?? featured.title} fill style={{ objectFit: 'cover' }} />
-                    {/* Blue overlay block */}
-                    <div style={{ position: 'absolute', left: 32, top: 32, zIndex: 3, background: 'var(--blue)', color: 'var(--ink)', padding: '14px 18px', maxWidth: 280, fontFamily: 'var(--serif)', fontWeight: 600, fontSize: 18, lineHeight: 1.3, border: '1px solid var(--ink)' }}>
-                      Marketing potencializa, encanta, acelera, amplifica. Mas não ressuscita o que desmorona no primeiro contato real.
-                      <div style={{ marginTop: 10, fontFamily: 'var(--mono)', fontSize: 9, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--blue-ink)', fontWeight: 400 }}>Tese · destaque</div>
-                    </div>
-                  </>
-                ) : (
-                  <EngravedPlaceholder height={380} corner="01" />
+                  ) : (
+                    <EngravedPlaceholder height={380} corner="01" />
+                  )}
+                </div>
+                {featured.coverImage && (
+                  <div className="hero-tese" style={{ top: 32, bottom: 'auto', maxWidth: 280, fontFamily: 'var(--serif)', fontWeight: 600, fontSize: 18, lineHeight: 1.3, border: '1px solid var(--ink)' }}>
+                    Marketing potencializa, encanta, acelera, amplifica. Mas não ressuscita o que desmorona no primeiro contato real.
+                    <div style={{ marginTop: 10, fontFamily: 'var(--mono)', fontSize: 9, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--blue-ink)', fontWeight: 400 }}>Tese · destaque</div>
+                  </div>
                 )}
               </div>
             </Link>

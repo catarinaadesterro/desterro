@@ -54,7 +54,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
       <section className="sec" style={{ padding: '60px var(--px) 0' }}>
         <div className="eyebrow" style={{ marginBottom: 18 }}>EDITORIA</div>
         <div className="rg-cat-hdr">
-          <h1 style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 'var(--fs-display)', lineHeight: .9, letterSpacing: '-.03em', margin: 0 }}>
+          <h1 style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 'clamp(28px, 8vw, 96px)', lineHeight: .9, letterSpacing: '-.03em', margin: 0 }}>
             {label}<span style={{ fontStyle: 'italic', fontWeight: 500 }}>.</span>
           </h1>
           <div>

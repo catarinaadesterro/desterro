@@ -280,7 +280,21 @@ h1, h2, h3, h4, p { overflow-wrap: break-word; word-break: break-word; }
 .form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
 @media (max-width: 640px) { .form-2col { grid-template-columns: 1fr; } }
 
-/* MiniHeader on small screens */
+/* MiniHeader — hide scrollbar, keep nav scrollable; hide date on mobile */
+.mini-header-nav { scrollbar-width: none; }
+.mini-header-nav::-webkit-scrollbar { display: none; }
 @media (max-width: 640px) {
-  .mini-header-nav { display: none !important; }
+  .mini-header-date { display: none; }
+}
+
+/* Hero image tese overlay — absolute on desktop, flows below image on mobile */
+.hero-tese { position: absolute; left: 32px; bottom: 32px; background: var(--blue); color: var(--ink); padding: 16px 20px; max-width: 340px; z-index: 2; }
+@media (max-width: 640px) {
+  .hero-tese { position: static; max-width: 100%; border-top: 1px solid var(--ink); }
+}
+
+/* Footer responsive grid */
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--gray-2); }
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
 }

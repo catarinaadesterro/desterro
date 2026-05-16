@@ -78,23 +78,24 @@ export function MiniHeader() {
   const date = new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' });
   return (
     <header style={{
-      padding: '20px 40px 14px', borderBottom: '3px double var(--ink)',
+      padding: '20px var(--px, 40px) 14px', borderBottom: '3px double var(--ink)',
       display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-      background: 'var(--paper-warm)',
+      gap: 16, background: 'var(--paper-warm)',
     }}>
-      <Link href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+      <Link href="/" style={{ textDecoration: 'none', color: 'inherit', flexShrink: 0 }}>
         <div style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 38, letterSpacing: '-.02em', lineHeight: 1 }}>DESTERRO</div>
       </Link>
-      <nav style={{ display: 'flex', gap: 28, fontFamily: 'var(--sans)', fontSize: 13 }}>
+      <nav className="mini-header-nav" style={{ display: 'flex', gap: 24, fontFamily: 'var(--sans)', fontSize: 13, overflowX: 'auto' }}>
         {NAV_ITEMS.map(item => (
           <Link key={item.href} href={item.href} style={{
             textDecoration: 'none', color: 'var(--ink)',
             fontStyle: item.italic ? 'italic' : 'normal',
             fontFamily: item.italic ? 'var(--serif)' : 'var(--sans)',
+            whiteSpace: 'nowrap',
           }}>{item.label}</Link>
         ))}
       </nav>
-      <div className="mono" style={{ fontSize: 10, letterSpacing: '.22em', textTransform: 'uppercase', color: 'var(--gray-2)' }}>{date}</div>
+      <div className="mini-header-date mono" style={{ fontSize: 10, letterSpacing: '.22em', textTransform: 'uppercase', color: 'var(--gray-2)', flexShrink: 0 }}>{date}</div>
     </header>
   );
 }

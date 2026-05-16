@@ -110,23 +110,26 @@ export default async function ArticleSlugPage({ params }: { params: { category: 
 
       {/* Hero image */}
       <section className="sec" style={{ padding: '24px var(--px) 0' }}>
-        <div className="hero-img" style={{ height: 460, position: 'relative', background: '#efe8d6', border: '1px solid var(--ink)', overflow: 'hidden' }}>
-          {article.coverImage ? (
-            <>
-              <Image src={article.coverImage} alt={article.coverAlt ?? article.title} fill style={{ objectFit: 'cover' }} />
-              {/* Blue tese overlay */}
-              <div style={{ position: 'absolute', left: 32, bottom: 32, background: 'var(--blue)', color: 'var(--ink)', padding: '16px 20px', maxWidth: 340, zIndex: 2 }}>
-                <div className="mono" style={{ fontSize: 9, letterSpacing: '.22em', textTransform: 'uppercase', color: 'var(--blue-ink)', marginBottom: 6 }}>Tese</div>
-                <div style={{ fontFamily: 'var(--serif)', fontWeight: 600, fontSize: 18, lineHeight: 1.25 }}>
-                  Marketing potencializa, encanta, acelera, amplifica. Mas não ressuscita o que desmorona no primeiro contato real.
+        <div style={{ position: 'relative' }}>
+          <div className="hero-img" style={{ height: 460, position: 'relative', background: '#efe8d6', border: '1px solid var(--ink)', overflow: 'hidden' }}>
+            {article.coverImage ? (
+              <>
+                <Image src={article.coverImage} alt={article.coverAlt ?? article.title} fill style={{ objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', right: 0, top: 0, background: 'var(--paper)', color: 'var(--ink)', padding: '8px 14px', fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '.18em', textTransform: 'uppercase', borderLeft: '1px solid var(--ink)', borderBottom: '1px solid var(--ink)' }}>
+                  ▮ {article.coverCaption}
                 </div>
+              </>
+            ) : (
+              <EngravedPlaceholder height={460} label="Imagem editorial" corner="CAPA" />
+            )}
+          </div>
+          {article.coverImage && (
+            <div className="hero-tese">
+              <div className="mono" style={{ fontSize: 9, letterSpacing: '.22em', textTransform: 'uppercase', color: 'var(--blue-ink)', marginBottom: 6 }}>Tese</div>
+              <div style={{ fontFamily: 'var(--serif)', fontWeight: 600, fontSize: 18, lineHeight: 1.25 }}>
+                Marketing potencializa, encanta, acelera, amplifica. Mas não ressuscita o que desmorona no primeiro contato real.
               </div>
-              <div style={{ position: 'absolute', right: 0, top: 0, background: 'var(--paper)', color: 'var(--ink)', padding: '8px 14px', fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '.18em', textTransform: 'uppercase', borderLeft: '1px solid var(--ink)', borderBottom: '1px solid var(--ink)' }}>
-                ▮ {article.coverCaption}
-              </div>
-            </>
-          ) : (
-            <EngravedPlaceholder height={460} label="Imagem editorial" corner="CAPA" />
+            </div>
           )}
         </div>
       </section>

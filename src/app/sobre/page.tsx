@@ -26,7 +26,7 @@ export default function SobrePage() {
       {/* Title */}
       <section style={{ padding: '20px 40px 0', maxWidth: 1100 }}>
         <div className="eyebrow" style={{ marginBottom: 16 }}>QUEM ESCREVE</div>
-        <h1 style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 96, lineHeight: .95, letterSpacing: '-.025em', margin: '0 0 18px' }}>
+        <h1 style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 'clamp(36px, 11vw, 96px)', lineHeight: .95, letterSpacing: '-.025em', margin: '0 0 18px' }}>
           Catarina<br /><span style={{ fontStyle: 'italic', fontWeight: 500 }}>Desterro.</span>
         </h1>
         <p style={{ fontFamily: 'var(--serif)', fontWeight: 300, fontSize: 26, lineHeight: 1.32, color: 'var(--gray-1)', margin: '0 0 24px', maxWidth: 880 }}>

@@ -2,8 +2,8 @@ import Link from 'next/link';
 
 export function Footer() {
   return (
-    <footer style={{ background: 'var(--ink)', color: 'var(--paper)', padding: '36px 40px 28px' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 32, paddingBottom: 24, borderBottom: '1px solid var(--gray-2)' }}>
+    <footer style={{ background: 'var(--ink)', color: 'var(--paper)', padding: '36px var(--px, 40px) 28px' }}>
+      <div className="footer-grid">
         <div>
           <div style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 38, letterSpacing: '-.02em', lineHeight: 1 }}>DESTERRO</div>
           <div className="mono" style={{ fontSize: 10, letterSpacing: '.22em', textTransform: 'uppercase', color: 'var(--gray-4)', marginTop: 6 }}>um jornal de voz própria</div>

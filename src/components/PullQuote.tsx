@@ -35,11 +35,11 @@ export function CenteredQuote({ children }: { children: React.ReactNode }) {
 
 export function ClosingQuote({ children, attribution }: { children: React.ReactNode; attribution?: string }) {
   return (
-    <section style={{ padding: '56px 40px 0' }}>
-      <div style={{ background: 'var(--ink)', color: 'var(--paper)', padding: '56px 48px', display: 'grid', gridTemplateColumns: 'auto 1fr', gap: 36, alignItems: 'center' }}>
-        <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: 180, lineHeight: .7, color: 'var(--blue)' }}>&ldquo;</div>
+    <section className="closing-quote">
+      <div className="closing-quote-inner">
+        <div className="closing-quote-mark">&ldquo;</div>
         <div>
-          <p style={{ margin: 0, fontFamily: 'var(--serif)', fontWeight: 500, fontSize: 38, lineHeight: 1.18, letterSpacing: '-.01em' }}>{children}</p>
+          <p className="closing-quote-text">{children}</p>
           {attribution && <div className="byline" style={{ marginTop: 16, color: 'var(--gray-4)' }}>— {attribution}</div>}
         </div>
       </div>

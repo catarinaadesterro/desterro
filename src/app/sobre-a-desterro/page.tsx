@@ -23,8 +23,8 @@ export default function SobreJornalPage() {
       </div>
 
       {/* Title — verbete style */}
-      <section style={{ padding: '20px 40px 0', maxWidth: 1100 }}>
-        <h1 style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 132, lineHeight: .92, letterSpacing: '-.03em', margin: '0 0 18px' }}>
+      <section className="sec" style={{ padding: '20px var(--px) 0' }}>
+        <h1 style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 'clamp(40px, 12vw, 132px)', lineHeight: .92, letterSpacing: '-.03em', margin: '0 0 18px' }}>
           des·<span style={{ fontStyle: 'italic', fontWeight: 500 }}>ter·ro</span>
         </h1>
         <div style={{ display: 'flex', gap: 20, alignItems: 'baseline', flexWrap: 'wrap', marginBottom: 18 }}>
@@ -38,11 +38,11 @@ export default function SobreJornalPage() {
       </section>
 
       {/* Body: margin | article | sidebar */}
-      <section style={{ padding: '44px 40px 0', display: 'grid', gridTemplateColumns: '120px 1fr 280px', gap: 36, alignItems: 'start' }}>
-        <aside style={{ position: 'sticky', top: 20 }} />
+      <section className="rg-sobre-body sec" style={{ padding: '44px var(--px) 0' }}>
+        <aside className="sobre-margin" style={{ position: 'sticky', top: 20 }} />
 
         {/* Article body */}
-        <article style={{ fontFamily: 'var(--serif)', fontSize: 19, lineHeight: 1.7, color: 'var(--ink-2)' }}>
+        <article style={{ fontFamily: 'var(--serif)', fontSize: 19, lineHeight: 1.7, color: 'var(--ink-2)', minWidth: 0 }}>
           <p style={{ margin: '0 0 18px' }}>
             <span style={{ float: 'left', fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 86, lineHeight: .82, paddingRight: 12, paddingTop: 6, color: 'var(--ink)' }}>D</span>
             esterro é, por si só, segundo o velho Google, o ato ou o efeito de desterrar, de expulsar alguém, de exilar.
@@ -96,7 +96,7 @@ export default function SobreJornalPage() {
         </article>
 
         {/* Right rail */}
-        <aside style={{ position: 'sticky', top: 20 }}>
+        <aside className="sobre-rail" style={{ position: 'sticky', top: 20 }}>
           <div style={{ border: '1px solid var(--ink)' }}>
             <div style={{ background: 'var(--ink)', color: 'var(--paper)', padding: '10px 14px', fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '.22em', textTransform: 'uppercase' }}>
               Sobre o jornal
@@ -127,18 +127,17 @@ export default function SobreJornalPage() {
       </section>
 
       {/* Contact section */}
-      <section style={{ padding: '72px 40px 0' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr auto', alignItems: 'center', gap: 16, marginBottom: 24 }}>
+      <section className="sec" style={{ padding: '72px var(--px) 0' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', alignItems: 'center', gap: 16, marginBottom: 24 }}>
           <span className="kicker" style={{ fontSize: 12 }}>FALE COMIGO</span>
           <hr className="hr" />
-          <span className="mono" style={{ fontSize: 10, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--gray-2)' }}>respostas em até 3 dias úteis</span>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.3fr', gap: 40, alignItems: 'start' }}>
+        <div className="rg-form-2">
           <div>
-            <h2 style={{ fontFamily: 'var(--serif)', fontWeight: 700, fontStyle: 'italic', fontSize: 48, lineHeight: 1, margin: '0 0 16px', letterSpacing: '-.01em' }}>
+            <h2 style={{ fontFamily: 'var(--serif)', fontWeight: 700, fontStyle: 'italic', fontSize: 'clamp(28px,4vw,48px)', lineHeight: 1, margin: '0 0 16px', letterSpacing: '-.01em' }}>
               Manda uma<br />mensagem.
             </h2>
-            <p style={{ fontFamily: 'var(--serif)', fontWeight: 300, fontSize: 18, lineHeight: 1.45, color: 'var(--gray-1)', margin: '0 0 16px', maxWidth: 420 }}>
+            <p style={{ fontFamily: 'var(--serif)', fontWeight: 300, fontSize: 18, lineHeight: 1.45, color: 'var(--gray-1)', margin: '0 0 16px' }}>
               Pra falar de pauta, parceria, um trabalho, ou só pra discordar, a caixa abaixo chega no meu e-mail. Sem formulário enrolado, sem auto-resposta.
             </p>
             <div className="byline" style={{ color: 'var(--gray-2)' }}>
@@ -146,7 +145,7 @@ export default function SobreJornalPage() {
             </div>
           </div>
           <form style={{ border: '1px solid var(--ink)', background: 'var(--paper)', padding: 24 }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginBottom: 14 }}>
+            <div className="form-2col">
               <label style={{ display: 'block' }}>
                 <div className="kicker" style={{ marginBottom: 6, fontSize: 10 }}>Seu nome</div>
                 <input type="text" placeholder="como devo te chamar" style={{ width: '100%', border: 0, borderBottom: '1px solid var(--ink)', background: 'transparent', padding: '8px 0', fontFamily: 'var(--serif)', fontSize: 16, outline: 'none', color: 'var(--ink)' }} />

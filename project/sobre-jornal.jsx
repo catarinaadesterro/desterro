@@ -28,7 +28,7 @@ const SobreJornalPage = () => {
       {/* CATEGORY STRIP */}
       <div style={{ padding: "16px 40px 0", display: "grid", gridTemplateColumns: "1fr auto", alignItems: "center" }}>
         <div className="kicker" style={{ display: "flex", gap: 12, alignItems: "center" }}>
-          <span style={{ background: "var(--blue)", color: "var(--ink)", padding: "4px 10px" }}>● Sobre a Desterro</span>
+          <span style={{ background: "var(--blue)", color: "var(--ink)", padding: "4px 10px" }}>● Sobre o Desterro</span>
           <span className="mono" style={{ fontSize: 10, letterSpacing: ".18em", color: "var(--gray-2)" }}>o que é este lugar</span>
         </div>
         <div className="mono" style={{ fontSize: 10, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--gray-2)" }}>

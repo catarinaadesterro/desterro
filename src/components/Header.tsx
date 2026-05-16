@@ -16,8 +16,8 @@ const NAV_ITEMS: { label: string; href: string; italic?: boolean; star?: boolean
 function MobileSecondaryNav() {
   return (
     <div className="mobile-secondary-nav">
-      <Link href="/sobre-a-desterro">Sobre o Desterro</Link>
-      <Link href="/sobre">Sobre Catarina</Link>
+      <Link href="/sobre-o-desterro">Sobre o Desterro</Link>
+      <Link href="/sobre-catarina">Sobre Catarina</Link>
       <Link href="/fale-comigo">Fale Comigo</Link>
     </div>
   );
@@ -68,7 +68,7 @@ export function UtilityBar() {
     <div className="util-bar" style={barStyle}>
       <span>{date}</span>
       <span style={{ display: 'flex', gap: 28, alignItems: 'center' }}>
-        <Link href="/sobre" className="util-sec-link" style={{ color: 'inherit', textDecoration: 'none' }}>Sobre Catarina</Link>
+        <Link href="/sobre-catarina" className="util-sec-link" style={{ color: 'inherit', textDecoration: 'none' }}>Sobre Catarina</Link>
         <Link href="/fale-comigo" className="util-sec-link" style={{ color: 'inherit', textDecoration: 'none' }}>Fale comigo</Link>
         <button
           onClick={() => setSearching(true)}
@@ -103,7 +103,7 @@ export function FullHeader({ activeCategory }: { activeCategory?: string }) {
               </div>
             </div>
             <div className="fh-right mono" style={{ textAlign: 'right', fontSize: 10, letterSpacing: '.22em', textTransform: 'uppercase', color: 'var(--ink)' }}>
-              <Link href="/sobre-a-desterro" style={{ color: 'inherit', textDecoration: 'none' }}>Sobre o Desterro →</Link>
+              <Link href="/sobre-o-desterro" style={{ color: 'inherit', textDecoration: 'none' }}>Sobre o Desterro →</Link>
             </div>
           </div>
           <nav style={{

@@ -153,7 +153,7 @@ export default async function ArticleSlugPage({ params }: { params: { category: 
 
         {/* Right sidebar */}
         <aside className="art-sidebar" style={{ position: 'sticky', top: 20 }}>
-          <Link href="/fale-comigo" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }} className="author-box-link">
+          <Link href="/sobre-catarina" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }} className="author-box-link">
             <div style={{ background: 'var(--paper)', padding: 18, marginBottom: 20 }}>
               <div className="kicker" style={{ marginBottom: 8 }}>Sobre a autora</div>
               <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>

@@ -28,7 +28,7 @@ const SobreJornalPage = () => {
       {/* CATEGORY STRIP */}
       <div style={{ padding: "16px 40px 0", display: "grid", gridTemplateColumns: "1fr auto", alignItems: "center" }}>
         <div className="kicker" style={{ display: "flex", gap: 12, alignItems: "center" }}>
-          <span style={{ background: "var(--blue)", color: "var(--ink)", padding: "4px 10px" }}>● Sobre a Desterro</span>
+          <span style={{ background: "var(--blue)", color: "var(--ink)", padding: "4px 10px" }}>● Sobre o Desterro</span>
           <span className="mono" style={{ fontSize: 10, letterSpacing: ".18em", color: "var(--gray-2)" }}>o que é este lugar</span>
         </div>
         <div className="mono" style={{ fontSize: 10, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--gray-2)" }}>
@@ -98,7 +98,7 @@ const SobreJornalPage = () => {
             Entre o que eu observo e o que eu tento entender. Entre o mercado e as pessoas. Entre o ruído das mudanças e a tentativa de organizar algum sentido nisso tudo.
           </p>
           <p style={{ margin: "0 0 18px" }}>
-            Aqui, escrevo sobre marketing, cultura e comportamento, mas também sobre transformação — a minha e do mundo ao redor.
+            Aqui, escrevo sobre marketing, cultura e comportamento, mas também sobre transformação, a minha e do mundo ao redor.
           </p>
 
           {/* BEGE pull quote — manifesto */}

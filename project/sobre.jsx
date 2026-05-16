@@ -47,7 +47,7 @@ const SobrePage = () => {
           Catarina<br />
           <span style={{ fontStyle: "italic", fontWeight: 500 }}>Desterro.</span>
         </h1>
-        <p style={{ fontFamily: "var(--serif)", fontWeight: 300, fontSize: 26, lineHeight: 1.32, color: "var(--gray-1)", margin: "0 0 24px", maxWidth: 880 }}>23 anos. Brasiliense de nascimento, maranhense de sangue, paulistana por necessidade. Trabalho com marketing, escrevo o que sobra disso.
+        <p style={{ fontFamily: "var(--serif)", fontWeight: 300, fontSize: 26, lineHeight: 1.32, color: "var(--gray-1)", margin: "0 0 24px", maxWidth: 880 }}>23 anos. Brasiliense de nascimento, maranhense de sangue, paulistana por orientação profissional. Trabalho com marketing, escrevo o que sobra disso.
 
         </p>
       </section>
@@ -156,7 +156,7 @@ const SobrePage = () => {
 E, em alguns momentos, simplesmente escrevo porque quero.
           </p>
           <p style={{ margin: "0 0 18px" }}>
-            Hoje, trabalho com marketing, transitando entre estratégia, conteúdo e SEO, tentando entender não só o que as pessoas consomem, mas <em>por quê</em>, e o que isso diz sobre o mundo que a gente está construindo, ou aceitando.
+            Hoje, trabalho com marketing, transitando entre estratégia, conteúdo e SEO, tentando entender não só o que as pessoas consomem, mas <em>porquê</em>, e o que isso diz sobre o mundo que a gente está construindo, ou aceitando.
           </p>
           <p style={{ margin: "0 0 18px" }}>
             Se você chegou até aqui, talvez esteja procurando conteúdo. Talvez esteja procurando respostas. Ou talvez só esteja passando o tempo.

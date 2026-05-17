@@ -37,7 +37,7 @@ export function Footer() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 16, fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--gray-4)' }}>
         <span>© 2026 desterro · todos os textos por catarina desterro</span>
         <Image
-          src="/images/galo-bebe-branco.png"
+          src="/images/mascotebranco.png"
           alt="Mascote Desterro"
           width={48}
           height={48}

@@ -11,6 +11,7 @@ export interface ArticleMeta {
   coverAlt?: string;
   coverCaption?: string;
   topics?: string;
+  tese?: string;
   seo?: {
     title?: string;
     description?: string;

@@ -131,11 +131,11 @@ export default async function ArticleSlugPage({ params }: { params: { category: 
               <EngravedPlaceholder height={460} label="Imagem editorial" corner="CAPA" />
             )}
           </div>
-          {article.coverImage && (
+          {article.coverImage && article.tese && (
             <div className="hero-tese">
               <div className="mono" style={{ fontSize: 9, letterSpacing: '.22em', textTransform: 'uppercase', color: 'var(--blue-ink)', marginBottom: 6 }}>Tese</div>
               <div style={{ fontFamily: 'var(--serif)', fontWeight: 600, fontSize: 18, lineHeight: 1.25 }}>
-                Marketing potencializa, encanta, acelera, amplifica. Mas não ressuscita o que desmorona no primeiro contato real.
+                {article.tese}
               </div>
             </div>
           )}

@@ -236,7 +236,7 @@ h1, h2, h3, h4, p { overflow-wrap: break-word; word-break: break-word; }
 .author-box-link:hover > div { background: var(--blue) !important; }
 
 /* Hero image */
-.hero-img { height: 500px; }
+.hero-img { height: 560px; }
 @media (max-width: 640px) {
   .hero-img { height: 210px !important; background: #f2ebce; }
   .hero-img-inner {

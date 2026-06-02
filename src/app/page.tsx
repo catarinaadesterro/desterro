@@ -7,9 +7,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export default function HomePage() {
-  const featured = getFeaturedArticle();
   const allArticles = getAllArticles();
-  const gridArticles = allArticles.filter(a => !a.featured).slice(0, 3);
+  const featured = allArticles[0] ?? null;
+  const gridArticles = allArticles.slice(1, 4);
   const latestOpiniao = getArticlesByCategory('opiniao')[0] ?? null;
   const railArticles = allArticles.slice(0, 4);
   const listaArticles = allArticles.filter(a => a.slug !== latestOpiniao?.slug).slice(0, 5);

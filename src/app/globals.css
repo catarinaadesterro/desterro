@@ -236,10 +236,9 @@ h1, h2, h3, h4, p { overflow-wrap: break-word; word-break: break-word; }
 .author-box-link:hover > div { background: var(--blue) !important; }
 
 /* Hero image: natural on desktop, fixed height on mobile */
-.hero-img img { width: 100%; height: auto; display: block; }
+.hero-img { height: 500px; }
 @media (max-width: 640px) {
-  .hero-img { height: 240px !important; }
-  .hero-img img { height: 240px; object-fit: cover; object-position: center top; }
+  .hero-img { height: 220px !important; }
 }
 
 /* Mobile: ≤ 640px */

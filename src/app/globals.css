@@ -235,10 +235,14 @@ h1, h2, h3, h4, p { overflow-wrap: break-word; word-break: break-word; }
 .author-box-link > div { transition: background .15s; }
 .author-box-link:hover > div { background: var(--blue) !important; }
 
-/* Hero image: natural on desktop, fixed height on mobile */
+/* Hero image */
 .hero-img { height: 500px; }
 @media (max-width: 640px) {
-  .hero-img { height: 180px !important; }
+  .hero-img { height: 210px !important; background: #f2ebce; }
+  .hero-img-inner {
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
 }
 
 /* Mobile: ≤ 640px */

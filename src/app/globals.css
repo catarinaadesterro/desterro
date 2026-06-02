@@ -238,7 +238,7 @@ h1, h2, h3, h4, p { overflow-wrap: break-word; word-break: break-word; }
 /* Hero image: natural on desktop, fixed height on mobile */
 .hero-img { height: 500px; }
 @media (max-width: 640px) {
-  .hero-img { height: 220px !important; }
+  .hero-img { height: 180px !important; }
 }
 
 /* Mobile: ≤ 640px */

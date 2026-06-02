@@ -49,10 +49,16 @@ export async function generateMetadata({ params }: { params: { category: string;
   };
 }
 
+const CATEGORY_LABELS: Record<string, string> = {
+  marketing: 'Marketing', mercado: 'Mercado', carreira: 'Carreira',
+  empreendedorismo: 'Empreendedorismo', 'guest-posts': 'Guest Posts', opiniao: 'Opinião',
+};
+
 export default async function ArticleSlugPage({ params }: { params: { category: string; slug: string } }) {
   const article = getArticleBySlug(params.slug);
   if (!article || article.category !== params.category) notFound();
 
+  const categoryLabel = CATEGORY_LABELS[article.category] ?? article.category;
   const relatedArticles = getAllArticles().filter(a => a.slug !== article.slug).slice(0, 3);
 
   return (
@@ -70,7 +76,7 @@ export default async function ArticleSlugPage({ params }: { params: { category: 
       {/* Category strip */}
       <div style={{ padding: '16px 40px 0', display: 'grid', gridTemplateColumns: '1fr auto', alignItems: 'center' }}>
         <div className="kicker" style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-          <span style={{ background: 'var(--blue)', color: 'var(--ink)', padding: '4px 10px' }}>● {article.category}</span>
+          <span style={{ background: 'var(--blue)', color: 'var(--ink)', padding: '4px 10px' }}>● {categoryLabel}</span>
           <span className="mono" style={{ fontSize: 10, letterSpacing: '.18em', color: 'var(--gray-2)' }}>· PUBLICADO {article.date.toUpperCase()}</span>
         </div>
         <div className="mono" style={{ fontSize: 10, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--gray-2)' }}>
@@ -101,7 +107,7 @@ export default async function ArticleSlugPage({ params }: { params: { category: 
           </div>
           <div style={{ padding: '0 24px', borderRight: '1px solid var(--gray-4)' }}>
             <div className="kicker" style={{ color: 'var(--gray-2)', marginBottom: 4 }}>Categoria</div>
-            <div style={{ fontFamily: 'var(--sans)', fontSize: 14, fontWeight: 500 }}>{article.category}</div>
+            <div style={{ fontFamily: 'var(--sans)', fontSize: 14, fontWeight: 500 }}>{categoryLabel}</div>
           </div>
           <div style={{ padding: '0 24px', borderRight: '1px solid var(--gray-4)' }}>
             <div className="kicker" style={{ color: 'var(--gray-2)', marginBottom: 4 }}>Publicado</div>
@@ -147,7 +153,7 @@ export default async function ArticleSlugPage({ params }: { params: { category: 
         {/* Left label */}
         <aside className="art-label" style={{ position: 'sticky', top: 20 }}>
           <div className="kicker" style={{ color: 'var(--gray-2)', marginBottom: 10, writingMode: 'vertical-rl', transform: 'rotate(180deg)', letterSpacing: '.3em' }}>
-            ensaio · {article.category}
+            ensaio · {categoryLabel}
           </div>
         </aside>
 

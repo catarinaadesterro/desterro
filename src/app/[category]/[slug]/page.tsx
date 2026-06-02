@@ -119,7 +119,7 @@ export default async function ArticleSlugPage({ params }: { params: { category: 
       {/* Hero image */}
       <section className="sec" style={{ padding: '24px var(--px) 0' }}>
         <div style={{ position: 'relative' }}>
-          <div className="hero-img" style={{ height: 460, position: 'relative', background: '#efe8d6', border: '1px solid var(--ink)', overflow: 'hidden' }}>
+          <div className="hero-img" style={{ aspectRatio: '16/9', position: 'relative', background: '#efe8d6', border: '1px solid var(--ink)', overflow: 'hidden' }}>
             {article.coverImage ? (
               <>
                 <Image src={article.coverImage} alt={article.coverAlt ?? article.title} fill style={{ objectFit: 'cover', objectPosition: 'center top' }} />

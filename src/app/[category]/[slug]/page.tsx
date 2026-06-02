@@ -80,7 +80,15 @@ export default async function ArticleSlugPage({ params }: { params: { category: 
 
       {/* Title block */}
       <section className="sec" style={{ padding: '20px var(--px) 0', maxWidth: 1100 }}>
-        <h1 style={{ fontFamily: 'var(--serif)', fontWeight: 800, fontSize: 'var(--fs-article-title)', lineHeight: .96, letterSpacing: '-.025em', margin: '0 0 18px' }}>
+        <h1 style={{
+          fontFamily: 'var(--serif)', fontWeight: 800,
+          fontSize: article.title.length > 60
+            ? 'clamp(24px, 3.5vw, 52px)'
+            : article.title.length > 40
+              ? 'clamp(28px, 5vw, 72px)'
+              : 'var(--fs-article-title)',
+          lineHeight: .96, letterSpacing: '-.025em', margin: '0 0 18px'
+        }}>
           {article.title}
         </h1>
         <p style={{ fontFamily: 'var(--serif)', fontWeight: 300, fontSize: 26, lineHeight: 1.32, color: 'var(--gray-1)', margin: '0 0 24px', maxWidth: 880 }}>

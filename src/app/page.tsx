@@ -2,15 +2,17 @@ import { UtilityBar, FullHeader } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { ArticleCard } from '@/components/ArticleCard';
 import { EngravedPlaceholder } from '@/components/EngravedPlaceholder';
-import { getAllArticles, getFeaturedArticle } from '@/lib/articles';
+import { getAllArticles, getFeaturedArticle, getArticlesByCategory } from '@/lib/articles';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function HomePage() {
   const featured = getFeaturedArticle();
   const allArticles = getAllArticles();
-  // Get non-featured published articles for grid
   const gridArticles = allArticles.filter(a => !a.featured).slice(0, 3);
+  const latestOpiniao = getArticlesByCategory('opiniao')[0] ?? null;
+  const railArticles = allArticles.slice(0, 4);
+  const listaArticles = allArticles.filter(a => a.slug !== latestOpiniao?.slug).slice(0, 5);
 
   return (
     <div style={{ width: '100%', background: 'var(--paper-warm)', color: 'var(--ink)', fontFamily: 'var(--sans)' }}>
@@ -47,9 +49,9 @@ export default function HomePage() {
                     <EngravedPlaceholder height={380} corner="01" />
                   )}
                 </div>
-                {featured.coverImage && (
+                {featured.coverImage && featured.tese && (
                   <div className="hero-tese" style={{ top: 32, bottom: 'auto', maxWidth: 280, fontFamily: 'var(--serif)', fontWeight: 600, fontSize: 18, lineHeight: 1.3, border: '1px solid var(--ink)' }}>
-                    Marketing potencializa, encanta, acelera, amplifica. Mas não ressuscita o que desmorona no primeiro contato real.
+                    {featured.tese}
                     <div style={{ marginTop: 10, fontFamily: 'var(--mono)', fontSize: 9, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--blue-ink)', fontWeight: 400 }}>Tese · destaque</div>
                   </div>
                 )}
@@ -71,20 +73,15 @@ export default function HomePage() {
         {/* RIGHT RAIL */}
         <aside className="hp-rail" style={{ borderLeft: '1px solid var(--gray-4)', paddingLeft: 24 }}>
           <div className="kicker" style={{ marginBottom: 12 }}>Em destaque</div>
-          {[1,2,3,4].map((n, i) => (
-            <div key={i} style={{ display: 'grid', gridTemplateColumns: '36px 1fr', gap: 12, padding: '14px 0', borderTop: i === 0 ? '1px solid var(--ink)' : '1px solid var(--gray-5)' }}>
-              <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontWeight: 400, fontSize: 28, lineHeight: 1, color: 'var(--gray-3)' }}>{String(n).padStart(2,'0')}</div>
+          {railArticles.map((a, i) => (
+            <Link key={a.slug} href={`/${a.category}/${a.slug}`} style={{ textDecoration: 'none', color: 'inherit', display: 'grid', gridTemplateColumns: '36px 1fr', gap: 12, padding: '14px 0', borderTop: i === 0 ? '1px solid var(--ink)' : '1px solid var(--gray-5)' }}>
+              <div style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontWeight: 400, fontSize: 28, lineHeight: 1, color: 'var(--gray-3)' }}>{String(i + 1).padStart(2,'0')}</div>
               <div>
-                <div className="kicker" style={{ color: 'var(--gray-3)', fontSize: 10, marginBottom: 4 }}>Em breve</div>
-                <div style={{ fontFamily: 'var(--serif)', fontWeight: 600, fontSize: 16, lineHeight: 1.25, color: 'var(--gray-3)' }}>Próxima publicação.</div>
+                <div className="kicker" style={{ color: 'var(--blue)', fontSize: 10, marginBottom: 4 }}>{a.category}</div>
+                <div style={{ fontFamily: 'var(--serif)', fontWeight: 600, fontSize: 16, lineHeight: 1.25 }}>{a.title}</div>
               </div>
-            </div>
+            </Link>
           ))}
-          <div style={{ marginTop: 28 }}>
-            <EngravedPlaceholder height={180} label="Em breve" corner="—" />
-            <div className="kicker" style={{ marginTop: 12, color: 'var(--gray-3)' }}>Em breve</div>
-            <div style={{ fontFamily: 'var(--serif)', fontWeight: 600, fontSize: 18, lineHeight: 1.2, marginTop: 6, color: 'var(--gray-3)' }}>Próxima publicação.</div>
-          </div>
         </aside>
       </section>
 
@@ -110,23 +107,30 @@ export default function HomePage() {
       <section className="rg-2col sec" style={{ padding: '44px var(--px) 0' }}>
         <article style={{ background: 'var(--paper)', padding: 28, position: 'relative' }}>
           <div className="kicker" style={{ marginBottom: 12 }}>Opinião</div>
-          <h2 style={{ fontFamily: 'var(--serif)', fontWeight: 700, fontStyle: 'italic', fontSize: 44, lineHeight: 1, margin: '0 0 14px', letterSpacing: '-.01em', color: 'var(--gray-3)' }}>
-            Em breve.
-          </h2>
-          <p style={{ fontFamily: 'var(--serif)', fontWeight: 300, fontSize: 18, lineHeight: 1.4, margin: '0 0 16px', maxWidth: 560, color: 'var(--gray-3)' }}>
-            Próxima publicação de opinião.
-          </p>
+          {latestOpiniao ? (
+            <Link href={`/${latestOpiniao.category}/${latestOpiniao.slug}`} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+              <h2 style={{ fontFamily: 'var(--serif)', fontWeight: 700, fontStyle: 'italic', fontSize: 'clamp(28px, 3vw, 44px)', lineHeight: 1, margin: '0 0 14px', letterSpacing: '-.01em' }}>
+                {latestOpiniao.title}
+              </h2>
+              <p style={{ fontFamily: 'var(--serif)', fontWeight: 300, fontSize: 18, lineHeight: 1.4, margin: '0 0 16px', maxWidth: 560, color: 'var(--gray-1)' }}>
+                {latestOpiniao.subtitle}
+              </p>
+              <span className="mono" style={{ fontSize: 10, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--gray-2)' }}>Ler artigo →</span>
+            </Link>
+          ) : (
+            <h2 style={{ fontFamily: 'var(--serif)', fontWeight: 700, fontStyle: 'italic', fontSize: 44, lineHeight: 1, margin: '0 0 14px', letterSpacing: '-.01em', color: 'var(--gray-3)' }}>Em breve.</h2>
+          )}
           <div style={{ position: 'absolute', right: 28, top: 28, fontFamily: 'var(--serif)', fontStyle: 'italic', fontWeight: 400, fontSize: 110, lineHeight: .8, color: 'var(--gray-5)' }}>&ldquo;</div>
         </article>
         <article>
           <div className="kicker" style={{ marginBottom: 10 }}>Lista</div>
           <div style={{ borderTop: '1px solid var(--ink)', borderBottom: '1px solid var(--ink)' }}>
-            {[1,2,3,4,5].map((n, i) => (
-              <div key={i} style={{ display: 'grid', gridTemplateColumns: '44px 1fr auto', gap: 12, padding: '12px 0', borderTop: i === 0 ? 0 : '1px solid var(--gray-5)', alignItems: 'center' }}>
-                <span className="mono" style={{ fontSize: 11, letterSpacing: '.15em', color: 'var(--gray-4)' }}>{String(n).padStart(2,'0')}</span>
-                <span style={{ fontFamily: 'var(--serif)', fontSize: 17, lineHeight: 1.25, color: 'var(--gray-3)' }}>Em breve.</span>
-                <span className="mono" style={{ fontSize: 10, color: 'var(--gray-4)' }}>—</span>
-              </div>
+            {listaArticles.map((a, i) => (
+              <Link key={a.slug} href={`/${a.category}/${a.slug}`} style={{ textDecoration: 'none', color: 'inherit', display: 'grid', gridTemplateColumns: '44px 1fr auto', gap: 12, padding: '12px 0', borderTop: i === 0 ? 'none' : '1px solid var(--gray-5)', alignItems: 'center' }}>
+                <span className="mono" style={{ fontSize: 11, letterSpacing: '.15em', color: 'var(--gray-4)' }}>{String(i + 1).padStart(2,'0')}</span>
+                <span style={{ fontFamily: 'var(--serif)', fontSize: 17, lineHeight: 1.25 }}>{a.title}</span>
+                <span className="mono" style={{ fontSize: 10, color: 'var(--gray-2)' }}>{a.readTime}</span>
+              </Link>
             ))}
           </div>
         </article>

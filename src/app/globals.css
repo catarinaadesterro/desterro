@@ -235,6 +235,13 @@ h1, h2, h3, h4, p { overflow-wrap: break-word; word-break: break-word; }
 .author-box-link > div { transition: background .15s; }
 .author-box-link:hover > div { background: var(--blue) !important; }
 
+/* Hero image: natural on desktop, fixed height on mobile */
+.hero-img img { width: 100%; height: auto; display: block; }
+@media (max-width: 640px) {
+  .hero-img { height: 240px !important; }
+  .hero-img img { height: 240px; object-fit: cover; object-position: center top; }
+}
+
 /* Mobile: ≤ 640px */
 @media (max-width: 640px) {
   .rg-3col { grid-template-columns: 1fr; }
